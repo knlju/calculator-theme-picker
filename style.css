@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Spartan', Arial, Helvetica, sans-serif;
+    font-size: 32px;
+}
+
+.radius {
+    border-radius: 10px;
+}
+
+/* themes */
+
+.theme-1 {
+    /* Backgrounds */
+    --primary-bg-color: hsl(222, 26%, 31%);
+    --secondary-bg-color: hsl(223, 31%, 20%);
+    --result-bg-color: hsl(224, 36%, 15%);
+
+    /* Keys */
+    --key-bg-remove: hsl(225, 21%, 49%);
+    --key-shadow-remove: hsl(224, 28%, 35%);
+
+    --key-bg-equals: hsl(6, 63%, 50%);
+    --key-shadow-equals: hsl(6, 70%, 34%);
+
+    --key-bg-primary: hsl(30, 25%, 89%);
+    --key-shadow-primary: hsl(28, 16%, 65%);
+
+    /* Text */
+    --text-primary: hsl(221, 14%, 31%);
+    --text-secondary: #fff;
+    --text-top: #fff;
+    --text-equals: #fff;
+}
+
+.theme-2 {
+    /* Backgrounds */
+    --primary-bg-color: hsl(0, 0%, 90%);
+    --secondary-bg-color: hsl(0, 5%, 81%);
+    --result-bg-color: hsl(0, 0%, 93%);
+
+    /* Keys */
+    --key-bg-remove: hsl(185, 42%, 37%);
+    --key-shadow-remove: hsl(185, 58%, 25%);
+
+    --key-bg-equals: hsl(25, 98%, 40%);
+    --key-shadow-equals: hsl(25, 99%, 27%);
+
+    --key-bg-primary: hsl(45, 7%, 89%);
+    --key-shadow-primary: hsl(35, 11%, 61%);
+
+    /* Text */
+    --text-primary: hsl(60, 10%, 19%);
+    --text-secondary: #fff;
+    --text-top: hsl(60, 10%, 19%);
+    --text-equals: #fff;
+}
+
+.theme-3 {
+    
+    /* Backgrounds */
+    --primary-bg-color: hsl(268, 75%, 9%);
+    --secondary-bg-color: hsl(268, 71%, 12%);
+    --result-bg-color: hsl(268, 71%, 12%);
+
+    /* Keys */
+    --key-bg-remove: hsl(281, 89%, 26%);
+    --key-shadow-remove: hsl(285, 91%, 52%);
+
+    --key-bg-equals: hsl(176, 100%, 44%);
+    --key-shadow-equals: hsl(177, 92%, 70%);
+
+    --key-bg-primary: hsl(268, 47%, 21%);
+    --key-shadow-primary: hsl(290, 70%, 36%);
+
+    /* Text */
+    --text-primary:  hsl(52, 100%, 62%);
+    --text-secondary: #fff;
+    --text-top: hsl(52, 100%, 62%);
+    --text-equals: hsl(198, 20%, 13%);
+}
+
+.btn-regular {
+    background-color: var(--key-bg-primary);
+    color: var(--text-primary);
+    box-shadow: 0 5px var(--key-shadow-primary);
+}
+
+.btn-reset {
+    background-color: var(--key-bg-remove);
+    color: var(--text-secondary);
+    box-shadow: 0 5px var(--key-shadow-remove);
+    font-size: 20px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-equals {
+    background-color: var(--key-bg-equals);
+    color: var(--text-equals);
+    box-shadow: 0 5px var(--key-shadow-equals);
+}
+
+.wrapper {
+    background-color: var(--primary-bg-color);
+}
+
+.controls {
+    background-color: var(--secondary-bg-color);
+}
+
+.result {
+    background-color: var(--result-bg-color);
+    color: var(--text-top);
+}
+
+.container-top {
+    color: var(--text-top);
+}
+
+/* positioning */
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.content {
+    max-width: 540px;
+    width: 100%;
+    margin: 32px 24px;
+}
+
+.container-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 25px;
+    padding: 32px 30px;
+}
+
+.control {
+    text-align: center;
+    padding: 10px 14px;
+}
+
+.control:hover {
+    filter: brightness(130%);
+    cursor: pointer;
+}
+
+.control-reset {
+    grid-column: 1 / span 2;
+    grid-row: 5;
+}
+
+.control-equals {    
+    grid-column: 3 / span 2;
+}
+
+.control-7 {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.control-8 {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.control-9 {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.control-6 {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.control-5 {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.control-4 {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.control-3 {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.control-2 {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.control-1 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.control-0 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+.control-del {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.control-times {
+    grid-column: 4;
+    grid-row: 4;
+}
+
+.result {
+    padding: 38px 32px 36px;
+    margin: 32px 0 24px 0;
+    text-align: right;
+    font-size: 40px;
+}
+
+@media screen and (max-width: 720px) {
+    .controls {
+        grid-gap: 13px;
+    }
+}
+
