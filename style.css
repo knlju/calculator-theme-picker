@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
-
 body {
     margin: 0;
     font-family: 'Spartan', Arial, Helvetica, sans-serif;
@@ -12,22 +11,18 @@ body {
 
 /* themes */
 
-.theme-1 {
+.theme-picker-1:checked~.wrapper {
     /* Backgrounds */
     --primary-bg-color: hsl(222, 26%, 31%);
     --secondary-bg-color: hsl(223, 31%, 20%);
     --result-bg-color: hsl(224, 36%, 15%);
-
     /* Keys */
     --key-bg-remove: hsl(225, 21%, 49%);
     --key-shadow-remove: hsl(224, 28%, 35%);
-
     --key-bg-equals: hsl(6, 63%, 50%);
     --key-shadow-equals: hsl(6, 70%, 34%);
-
     --key-bg-primary: hsl(30, 25%, 89%);
     --key-shadow-primary: hsl(28, 16%, 65%);
-
     /* Text */
     --text-primary: hsl(221, 14%, 31%);
     --text-secondary: #fff;
@@ -35,22 +30,22 @@ body {
     --text-equals: #fff;
 }
 
-.theme-2 {
+.theme-picker-1:checked~* .only-1 {
+    visibility: visible;
+}
+
+.theme-picker-2:checked~.wrapper {
     /* Backgrounds */
     --primary-bg-color: hsl(0, 0%, 90%);
     --secondary-bg-color: hsl(0, 5%, 81%);
     --result-bg-color: hsl(0, 0%, 93%);
-
     /* Keys */
     --key-bg-remove: hsl(185, 42%, 37%);
     --key-shadow-remove: hsl(185, 58%, 25%);
-
     --key-bg-equals: hsl(25, 98%, 40%);
     --key-shadow-equals: hsl(25, 99%, 27%);
-
     --key-bg-primary: hsl(45, 7%, 89%);
     --key-shadow-primary: hsl(35, 11%, 61%);
-
     /* Text */
     --text-primary: hsl(60, 10%, 19%);
     --text-secondary: #fff;
@@ -58,28 +53,31 @@ body {
     --text-equals: #fff;
 }
 
-.theme-3 {
-    
+.theme-picker-2:checked~* .only-2 {
+    visibility: visible;
+}
+
+.theme-picker-3:checked~.wrapper {
     /* Backgrounds */
     --primary-bg-color: hsl(268, 75%, 9%);
     --secondary-bg-color: hsl(268, 71%, 12%);
     --result-bg-color: hsl(268, 71%, 12%);
-
     /* Keys */
     --key-bg-remove: hsl(281, 89%, 26%);
     --key-shadow-remove: hsl(285, 91%, 52%);
-
     --key-bg-equals: hsl(176, 100%, 44%);
     --key-shadow-equals: hsl(177, 92%, 70%);
-
     --key-bg-primary: hsl(268, 47%, 21%);
     --key-shadow-primary: hsl(290, 70%, 36%);
-
     /* Text */
-    --text-primary:  hsl(52, 100%, 62%);
+    --text-primary: hsl(52, 100%, 62%);
     --text-secondary: #fff;
     --text-top: hsl(52, 100%, 62%);
     --text-equals: hsl(198, 20%, 13%);
+}
+
+.theme-picker-3:checked~* .only-3 {
+    visibility: visible;
 }
 
 .btn-regular {
@@ -99,29 +97,6 @@ body {
     justify-content: center;
 }
 
-.control-equals {
-    background-color: var(--key-bg-equals);
-    color: var(--text-equals);
-    box-shadow: 0 5px var(--key-shadow-equals);
-}
-
-.wrapper {
-    background-color: var(--primary-bg-color);
-}
-
-.controls {
-    background-color: var(--secondary-bg-color);
-}
-
-.result {
-    background-color: var(--result-bg-color);
-    color: var(--text-top);
-}
-
-.container-top {
-    color: var(--text-top);
-}
-
 /* positioning */
 
 .wrapper {
@@ -129,6 +104,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background-color: var(--primary-bg-color);
 }
 
 .content {
@@ -140,6 +116,8 @@ body {
 .container-top {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
+    color: var(--text-top);
 }
 
 .controls {
@@ -147,6 +125,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 25px;
     padding: 32px 30px;
+    background-color: var(--secondary-bg-color);
 }
 
 .control {
@@ -159,13 +138,21 @@ body {
     cursor: pointer;
 }
 
+.control:active {
+    margin: 5px 0 -5px 0;
+    box-shadow: none;
+}
+
 .control-reset {
     grid-column: 1 / span 2;
     grid-row: 5;
 }
 
-.control-equals {    
+.control-equals {
     grid-column: 3 / span 2;
+    background-color: var(--key-bg-equals);
+    color: var(--text-equals);
+    box-shadow: 0 5px var(--key-shadow-equals);
 }
 
 .control-7 {
@@ -233,11 +220,90 @@ body {
     margin: 32px 0 24px 0;
     text-align: right;
     font-size: 40px;
+    background-color: var(--result-bg-color);
+    color: var(--text-top);
+}
+
+.theme {
+    display: flex;
+    align-items: flex-end;
+    font-size: 12px;
+}
+
+.theme-sp {
+    text-transform: uppercase;
+    margin-right: 21px;
+    margin-bottom: 4px;
+    letter-spacing: 1px;
+}
+
+.theme-picker {
+    display: flex;
+}
+
+.theme-radio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.round-picker {
+    background-color: var(--secondary-bg-color);
+    padding: 5px;
+}
+
+.round-left {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.round-right {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.only-1 {
+    visibility: hidden;
+}
+
+.only-2 {
+    visibility: hidden;
+}
+
+.only-3 {
+    visibility: hidden;
+}
+
+.rounded {
+    height: 16px;
+    width: 16px;
+    background-color: var(--key-bg-equals);
+    border-radius: 50%;
+}
+
+.hidden {
+    display: none;
 }
 
 @media screen and (max-width: 720px) {
     .controls {
-        grid-gap: 13px;
+        grid-column-gap: 13px;
+        grid-row-gap: 16px;
+    }
+    .result {
+        font-size: 32px;
+    }
+    .control {
+        font-size: 28px;
+    }
+    .btn-reset {
+        font-size: 16px;
+
+    }
+    .control-equals {
+        font-size: 16px;
+        line-height: 18px;
+        padding: 17px;
     }
 }
-
